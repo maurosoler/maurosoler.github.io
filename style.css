@@ -1,0 +1,34 @@
+body {
+    background-image: url('img/default.jpg');
+    background-size: cover;
+  }
+#earthIMG{
+    transition: 800ms;    
+}
+#earthIMG:hover{
+    transition: 800ms;    
+    transform: scale(1.2);
+    
+}
+
+#ciudad{
+    box-shadow: 0 0 20px 10px aqua; 
+}
+
+#btnGetData{
+    box-shadow: 0 0 20px 10px rgba(44, 65, 249, 0.945); 
+    
+}
+
+.show-shadow {
+    box-shadow: 0 0 20px 10px coral;
+}
+
+#card{
+    margin-top: 11%;
+    margin-left: -1%;
+    padding-top: 1%;
+    padding-left: 1%; 
+    padding-right: 1%; 
+    padding-bottom: 2%"
+}
