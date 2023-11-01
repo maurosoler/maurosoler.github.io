@@ -1,0 +1,98 @@
+
+  
+body {
+    background-color:var(--main-background-color-clear);
+}
+#relatedProducts{
+    display:flex;
+    flex-direction: row;
+    overflow: scroll;
+    justify-content: center;
+    /* padding-left: 150px; */
+}
+.divProducto {
+    background-color: var(--main-card-background-clear);
+    color: var(--main-text-color-clear);
+    transition: 800ms;
+}
+
+.divProducto:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+
+/* CARTEL DE "NO SE ENCONTRARON RESULTADOS"  */
+#notFound{
+    background-color: #212529;
+    color: white;
+    border-radius: 10px;
+    border: solid rgb(191, 2, 2) 1.8px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 120%;
+    margin: 1% 20%;
+    padding: 4%;
+}
+
+/** COMIENZA ESTILO DEL BUSCADOR */
+#formSearch{
+    width: 50%;
+    margin-left: 7%;
+    margin-bottom: 1%;
+    margin-top: 1%;
+}
+/* 
+#inputSearch:hover{
+    border: solid var(--main-card-background-clear);
+    background-color:  var(--main-background-color-clear);
+}
+#botonSearch{
+    background-color: rgb(3, 3, 57);
+    color: aqua;
+}
+#botonSearch:hover{
+    border: solid rgb(3, 3, 57) 1px;
+    color: rgb(3, 3, 57);
+    background-color: aqua;
+    
+} */
+/** FINALIZA ESTILO DEL BUSCADOR */
+
+.imagenProducto{
+    width: 100%;
+    max-width: 275px;
+}
+
+  #tituloCategoria {
+    margin-top: 0.5%;
+    margin-bottom: 0.8%;
+    color: var(--main-header-clear);
+    font-weight: 500;
+    
+    text-align: center;
+        text-shadow: 
+        -1px 0 var(--main-secondary-color-clear), 
+        0 2px var(--main-secondary-color-clear),
+         1px 0 var(--main-secondary-color-clear),
+          0 -1px var(--main-secondary-color-clear);
+}
+
+#clearRangeFilter {
+    margin-left: 1%;
+}
+.btn-group-vertical>.btn, .btn-group>.btn {
+    background-color: var(--main-button-color-clear);
+    color: var(--main-background-color-clear);
+}
+.btn-group>.btn-check:checked+.btn {
+    background-color: var(--main-button-color-clear);
+    color: var(--main-background-color-clear);
+}
+p{
+    color:var(--main-text-color-clear)
+}
+
+h3{
+    color: var(--main-header-clear);
+}

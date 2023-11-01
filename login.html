@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>eMercado - Todo lo que busques está aquí</title>
+  
+  <!--  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet"> -->
+  <!--  <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+  <!-- <link href="css/styles.css" rel="stylesheet"> -->
+  <!-- Debajo agrego 2 Links, el 2do es para los íconos en los INPUT -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/login.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+
+<body>
+    <main class="mt-5">
+    
+    <div class="container">
+        <div class="login">
+          <form id="loginForm" action="">
+            <img id="JAP" src="img/login2.png" alt="e-Mercado">
+
+            <div class="input-box">
+          
+              <input id="email" autocomplete="off" type="email" placeholder="Ingresa tu Email" title="ejemplo@tuEmail.com" required> 
+              <i class='bx bx-envelope'></i>
+              
+            </div>
+            <div class="input-box">
+              <input id="password" type="password" placeholder="Contraseña" > 
+              <button type="button" id="buttonPassword">
+                <span id="hidePassword"><img title="Ver Contraseña" src="icons/hidePassAjustado.png"></span>
+                <span id="showPassword"><img title="Ocultar Contraseña" src="icons/showPassAjustado.png"></span>
+            </button>
+            </div> 
+
+            <div class="remember-forgot">
+              <label><input type="checkbox" /> Recordarme </label>
+              <a href="#"> ¿Olvidó su contraseña? </a>
+            </div>
+            
+            
+            <button type="submit" id="regBtn" class="btn"> Ingresar </button>
+
+            <div class="register">
+              <p>
+              
+                <a href="#">¿Aún no tienes una cuenta? <span id="linkRegistro">Regístrate</span></a>
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+    <!-- TALVEZ PUEDA USAR EN CSS PARA EL FOOTER UN POSITION : ABSOLUTE / BOTTOM -->
+    <!-- <footer class="text-muted">
+    <div class="container">
+      <p class="float-end">
+        <a href="#">Volver arriba</a>
+      </p>
+      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+    </div>
+  </footer> -->
+  <script src="js/helpers.js"></script>
+  <script src="js/login.js"></script>
+</body>
+
+</html>

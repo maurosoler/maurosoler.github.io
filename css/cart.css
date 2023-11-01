@@ -1,0 +1,47 @@
+body{
+    background-color: var(--main-background-color-clear);
+}
+h1, h4{
+    color: var(--main-header-clear);
+}
+.cart-info{
+    color: var(--main-text-color-clear);
+    background-color: var(--main-card-background-clear);
+}
+#cartProducts{
+    color: var(--main-text-color-clear);
+    background-color: var(--main-card-background-clear);
+}
+
+#staticBackdropLabel{
+    color: black;
+}
+
+#cancelPay , #aceptBtn{
+    border-radius: 5px;
+    transform: scale(1.2);
+}
+#aceptBtn{
+    margin-left: 2rem;
+}
+
+#text-feedback {
+    font-size: .6em;
+}
+
+#btnSelectPay.custom {
+    border: rgb(255, 68, 68) 1px solid;
+    color: rgb(255, 68, 68);
+}
+
+.product-image {
+    width: 6rem;
+}
+
+#trash:hover{
+cursor: pointer;
+}
+
+#trash{
+    transform: scale(0.8);
+}

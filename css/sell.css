@@ -1,0 +1,11 @@
+body{
+    background-color: var(--main-background-color-clear);
+}
+
+h2, h4, h5{
+    color:var(--main-header-clear)
+}
+.btn:hover{
+    transform: scale(1.1);
+    transition: 800ms;
+}

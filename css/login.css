@@ -1,0 +1,184 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--main-background-color-clear);
+
+}
+
+.login {
+    width: 420px;
+    background-color: var(--main-card-background-clear);
+    color: var(--main-header-clear);  
+    border-radius: 15px; 
+    padding: 30px 40px;
+}
+
+.login #JAP{
+max-width: 100%;
+max-height: 60%;
+transform: scale(1.2);
+transition: 1s;
+}
+.login #JAP:hover{
+   transform: scale(1.3);
+   transition: 1s;
+}
+
+.login .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+    transform: scale(1);
+    transition: 1s;
+}
+.login .input-box:hover{
+   transform: scale(1.1);
+   transition: 1s;
+   
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid white;
+    border-radius: 40px;
+    font-size: 16px;
+    color:white;
+    padding: 20px 45px 20px 20px;
+}
+ .input-box input::placeholder { color: var(--main-header-clear)}
+ .input-box input:hover{
+   border: 2px solid aqua;
+ }
+
+
+ .input-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+ }
+
+ .login .remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    margin: -15px 0 15px;
+ }
+
+ .remember-forgot label input {
+    accent-color: coral;
+    margin-right: 3px;
+ }
+
+ .remember-forgot a {
+    color: coral;
+    text-decoration: none;
+ }
+ .remember-forgot a:hover {
+    text-decoration: underline;
+ }
+
+ .login #regBtn {
+    width: 100%;
+    height: 45px;
+    background-color: white;
+    color: black;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    font-size: 18px;
+    font-weight: 700;  
+    transition: 0.5s;
+ }
+
+ .login .register {
+    font-size: 14px;
+    text-align: center;
+    margin: 20px 0 15px;
+ }
+
+ .register p a {
+    color: var(--main-header-clear);
+    text-decoration: none;
+    font-weight: 400;
+ }
+ #linkRegistro{
+   color: coral;
+   text-decoration: none;
+   font-weight: 600;
+ }
+ .register p:hover {
+    text-decoration: underline;
+ }
+
+ #buttonPassword {
+    
+    position: absolute;
+    right: 20px;
+    top: 30%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    background: none;
+    border: 1px solid;  
+    border-radius: 40%;
+    /****************** PROBANDO DESTELLOS DE LUZ AL TECLEAR EL USUARIO ******************/
+    transition: box-shadow 0.2s ease-in-out;
+    }
+    #buttonPassword.active {
+      box-shadow: 0 0 15px rgba(5, 213, 255, 0.945); 
+    }
+    /**************************************************************************************/
+   #buttonPassword:hover{
+      box-shadow: 0 0 15px rgba(5, 213, 255, 0.945); 
+   }
+   
+ 
+ span img {
+    width: 20px;
+    height: auto;
+    }
+ 
+ #showPassword {
+    display: none;
+    
+ }
+ .login #regBtn:disabled{
+   background-color: rgb(3, 47, 69);
+   color: rgb(245, 243, 243);
+   cursor: not-allowed;
+   transform: scale(0.95);
+ }
+ .login #regBtn:hover:not(:disabled) {
+   background-color: var(--main-tertiary-color-clear);
+   transition: 0.5s;
+   transform: scale(1.1);
+}
+@media (max-width: 576px) {
+   .login {
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+   body{
+      background-color: var(--main-card-background-clear);
+   }
+ }

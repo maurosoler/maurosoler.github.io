@@ -1,0 +1,122 @@
+
+.commentsContainer {
+  background-color: var(--main-background-color-clear);
+  padding-top: 5%;
+  padding-left: 0;
+}
+/*---------------------------------------------------------------------------------*/
+.commentContainer {
+  background-color: var(--main-card-background-clear);
+  color: var(--main-text-color-clear);
+  border-radius: 2%;
+  display: flex;
+  align-items: center;
+  width: auto;
+  margin-bottom: 1%;
+  padding: 12px 24px;
+}
+
+.commentUser,
+.commentScore,
+.commentDesc,
+.commentDate {
+  flex-basis: 100%;
+}
+/*Responsive de comentarios en pantallas LG de (más) de 768px*/
+@media (width >= 768px) { 
+  .commentUser {
+    flex-basis: 15%;
+  }
+  .commentScore {
+    flex-basis: 20%;
+  }
+  .commentDesc {
+    flex-basis: 50%;
+  }
+  .commentDate {
+    flex-basis: 15%;
+  }
+}
+/*Responsive de comentarios en pantallas SM de (menos) de 768px*/
+@media (width < 768px) {
+  .commentContainer {
+    flex-direction: column;
+  }
+
+  .commentUser,
+  .commentScore,
+  .commentDesc,
+  .commentDate {
+    flex-basis: 100%;
+  }
+}
+.commentUser {
+  color: var(--main-header-clear);
+}
+
+label, h2{
+    color: var(--main-text-color-clear);
+}
+.list-color{
+    background-color: var(--main-card-background-clear);
+    color: var(--main-text-color-clear);
+}
+
+fieldset{
+  display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+b, h2, label{
+  color:var(--main-header-clear)
+}
+#btnSubmit{
+  background-color: var(--main-button-color-clear);
+  color: white;
+}
+#addToCart{
+  color: white;
+} 
+#sortIconDate, #sortIconStars {
+  width: 2.5rem;
+}
+
+/*Responsive de los Productos Relacionados en pantallas SM (menos) a 450px */
+.divProductRelated{
+  width: 240px;
+  padding: 16px;
+  margin: 32px 8px;
+  background-color: var(--main-card-background-clear);
+  color: var(--main-text-color-clear);
+  transition: 500ms;
+}
+.divProductRelated:hover{
+  transform: scale(1.1);
+  transition: 500ms;
+  cursor: pointer;
+}
+
+@media (width <= 450px){
+  #relatedProducts{
+  padding-left: 165px;
+  }
+  textarea {
+    width: 250px;
+    height: 250px;
+  }
+}
+@media (width >= 450px){
+  #relatedProducts::-webkit-scrollbar{
+    display: none;
+}
+}
+
+@media(width >= 767px){
+  .commentUser {
+    color: var(--main-header-clear);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 300px;
+  }
+}

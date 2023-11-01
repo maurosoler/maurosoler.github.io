@@ -5,27 +5,16 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>eMercado - Todo lo que busques está aquí</title>
-
+ 
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
-  
-  
-  
-  
+  <link href="css/products-info.css" rel="stylesheet">
+  <link href="css/products.css" rel="stylesheet">
 </head>
 
 <body>
-  <!-- El DIV OVERLAY sirve para dar el mensaje de alerta cuando NO HAY DATOS DE SESION EN LOCAL STORAGE  -->
-  <div id="overlay">
-    <div id="message"><p>Hemos notado que no iniciaste sesion <br> Para mejorar tu experiencia te enviaremos al Login</p></div>
-  </div>
-<!-- --------------------------------------------------------------------------------------------------------- -->
-  <!-- El DIV OVERLAY sirve para dar el mensaje de alerta cuando NO HAY DATOS DE SESION EN LOCAL STORAGE  -->
-  <div id="overlay">
-    <div id="message"><p>Hemos notado que no iniciaste sesion <br> Para mejorar tu experiencia te enviaremos al Login</p></div>
-  </div>
-<!-- --------------------------------------------------------------------------------------------------------- -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
     <div class="container">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -35,7 +24,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav w-100 justify-content-between">
           <li class="nav-item">
-            <a class="nav-link active" href="index.html">Inicio</a>
+            <a class="nav-link" href="index.html">Inicio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="categories.html">Categorías</a>
@@ -48,7 +37,6 @@
         </li>
         <li class="nav-item">
           <a class="nav-link inactiveLink" id="dark-theme" href=""></a>
-          
       
       </li>
     </ul>
@@ -58,6 +46,7 @@
 </div>
 </div>
 </nav>
+
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="sidebarEmail"></h5>
@@ -87,46 +76,42 @@
   </div>
 </div>
   <main>
-    <img id="coverIndex" src="img/cover_back.png" alt="cover de la pagina">
-    <div class="album py-5 cardContainer">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm custom-card cursor-active border" id="autos">
-              <img class="bd-placeholder-img card-img-top" src="img/cars_index.jpg"
-                alt="Imgagen representativa de la categoría 'Autos'">
-              <h3 class="m-3">Autos</h3>
-              <div class="card-body">
-                <p class="card-text">Los mejores precios en autos 0 kilómetro, de alta y media gama.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm custom-card cursor-active border" id="juguetes">
-              <img class="bd-placeholder-img card-img-top" src="img/toys_index.jpg"
-                alt="Imgagen representativa de la categoría 'Juguetes'">
-              <h3 class="m-3">Juguetes</h3>
-              <div class="card-body">
-                <p class="card-text">Encuentra aquí los mejores precios para niños/as de cualquier edad.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm custom-card cursor-active border" id="muebles">
-              <img class="bd-placeholder-img card-img-top" src="img/furniture_index.jpg"
-                alt="Imgagen representativa de la categoría 'Muebles'">
-              <h3 class="m-3">Muebles</h3>
-              <div class="card-body">
-                <p class="card-text">Muebles antiguos, nuevos y para ser armados por uno mismo.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row btnPlace">
-          <a class="btn btn-lg btn-block" href="categories.html">Y mucho más!</a>
+    <div id="container" class="container">
+      <br>
+      <div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <button type="button" id="addToCart" class="btn btn-primary">Agregar al carrito</button>
+          <button id="sortByDate" title="Ordenar por fecha" class="btn btn-primary me-md-2" type="button"><div class="d-flex justify-content-center"><img id="sortIconDate" src="icons/sort-down-date.png"></div></button>
+          <button id="sortByStars" title="Ordenar por puntuación" class="btn btn-primary" type="button"><img id="sortIconStars" src="icons/sort-down-stars.png"></button>
         </div>
       </div>
+      <div id="commentsSection" class="commentsContainer">
+      </div>
+      <div id="userCommentsSection" class="commentsContainer">
+      </div>
+      <form id="commentForm">
+        <fieldset>
+          <label for="name">Nombre:</label><input type="text" id="nameCommentUser" required>
+          <label for="starSelector">Puntuación:</label>
+            <select title="Elige tu puntaje" id="starSelector">
+              <option value="1">⭐</option>
+              <option value="2">⭐⭐</option>
+              <option value="3">⭐⭐⭐</option>
+              <option value="4">⭐⭐⭐⭐</option>
+              <option value="5">⭐⭐⭐⭐⭐</option>
+            </select>
+          
+        
+          <br>
+          <label for="description">Descripción:</label><textarea rows="10" cols="30" type="texta" id="description" title="Escribe aquí tu comentario" required class="align-self-center"> </textarea>
+          <br>
+          <input type="submit" id="btnSubmit" class="rounded border btn-lg">
+        </fieldset>
+      </form>
+
     </div>
+      <div><h2 class="text-muted text-center mt-4">↓ Productos Relacionados ↓</h2></div>
+      <div id="relatedProducts"> </div>
   </main>
   <footer class="text-muted">
     <div class="container">
@@ -136,15 +121,21 @@
       <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
     </div>
   </footer>
+  
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  
+  
   <script src="js/helpers.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/index.js"></script>
-  <!-- <script src="/js/login.js"></script> -->
-  
-  <!-- <script src="/js/login.js"></script> -->
-  
+  <script src="js/product-info.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,15 @@
+  
+  h2{
+    color: var(--main-header-clear);
+  }
+  .card{
+    background-color: var(--main-card-background-clear);
+    color: var(--main-header-clear);
+    transition: 800ms;
+  }
+
+  .card:hover{
+    background-color: var(--main-card-background-clear);
+    color: var(--main-header-clear);
+    transform: scale(1.1);
+  }
