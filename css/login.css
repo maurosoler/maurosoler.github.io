@@ -13,14 +13,14 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: var(--main-background-color-clear);
+    background-color:  #242629;
 
 }
 
 .login {
     width: 420px;
-    background-color: var(--main-card-background-clear);
-    color: var(--main-header-clear);  
+    background-color: #16161a;
+    color: #fffffe;
     border-radius: 15px; 
     padding: 30px 40px;
 }
@@ -62,7 +62,7 @@ transition: 1s;
     color:white;
     padding: 20px 45px 20px 20px;
 }
- .input-box input::placeholder { color: var(--main-header-clear)}
+ .input-box input::placeholder { color: #fffffe;}
  .input-box input:hover{
    border: 2px solid aqua;
  }
@@ -84,7 +84,7 @@ transition: 1s;
  }
 
  .remember-forgot label input {
-    accent-color: coral;
+    accent-color: aqua;
     margin-right: 3px;
  }
 
@@ -116,7 +116,7 @@ transition: 1s;
  }
 
  .register p a {
-    color: var(--main-header-clear);
+    color:#fffffe;
     text-decoration: none;
     font-weight: 400;
  }
@@ -168,7 +168,7 @@ transition: 1s;
    transform: scale(0.95);
  }
  .login #regBtn:hover:not(:disabled) {
-   background-color: var(--main-tertiary-color-clear);
+   background-color: aqua;
    transition: 0.5s;
    transform: scale(1.1);
 }

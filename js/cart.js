@@ -130,6 +130,7 @@ async function fetchDataAndShow() {
       const response = await fetch(urlProduct);
       const data = await response.json();
       appendProductToCart(data, productID, cartProducts);
+    
     } catch (error) {
       console.error(`Error fetching product with ID ${productID}: ${error}`);
     }
@@ -149,14 +150,14 @@ async function fetchDataAndShow() {
   }
 
   const productHTML = `
-    <div class="d-none d-sm-block col-sm-2 text-center p-0"><img src="../img/productspng/${productID}.png" class="py-2 product-image" alt="${productData.name}"></div>
+    <div class="d-none d-sm-block col-sm-2 text-center p-0"><img src="../img/productspng/${productID}.png" title="${productData.name}" class="py-2 product-image" alt="${productData.name}"></div>
     <div class="col-3 col-sm-3 text-center p-0">${productData.name}</div>
     <div class="d-none d-sm-block col-sm-2 text-center p-0">USD ${price.toFixed(2)}</div>
     <div class="col-1 col-sm-2 text-center p-0">
-      <input class="cart-quantity" type="number" value="1" max="999" min="1" class="text-center">
+      <input class="cart-quantity text-end" type="number" value="1" max="999" maxlength="3" min="1">
     </div>
     <div class="col-6 col-sm-2 text-end text-sm-center fw-bold p-0">USD <span class="subtotal">${price.toFixed(2)}</span></div>
-    <div class="col-1 col-sm-1 p-0 text-center"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="red" id="trash" class="bi bi-trash3 removeItem" viewBox="0 0 16 16">
+    <div class="col-1 col-sm-1 p-0 text-center p-0 removeItem" id="trash" title="Eliminar del carrito" data-productID="${productID}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-trash3" viewBox="0 0 22 22">
     <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
   </svg></div>
   `;
@@ -198,24 +199,54 @@ async function fetchDataAndShow() {
     updateTotalSum();
     updateDeliveryFee();
   });
+  
+
+//Obtener todas las categorias con sus nombres e IDs
+let categoriesData;
+fetch('https://japceibal.github.io/emercado-api/cats/cat.json')
+.then(res => res.json())
+.then(data => {
+   categoriesData = data;
+});
+
+//Función que devuelve la categoria según su nombre
+function getProductCat(categories, categoryName){
+const cat = categories.find(category => category.name === categoryName);
+return cat;
+};
+
+//Función que obtiene el nombre e id de la categoria del producto para reedirigir a product-info 
+function redirectAndSetCatID(productId){
+  fetch(`https://japceibal.github.io/emercado-api/products/${productId}.json`)
+  .then(response => response.json())
+  .then(product => {
+    const productCategoryName = product.category;
+    const cat = getProductCat(categoriesData, productCategoryName);
+    const catID = cat.id;
+    redirectToProductInfo(productId, catID);
+  })
+  .catch(error => {
+    console.error(error);
+  });
+}
+
+//Función reutilizada de products.js para redirigir a products-info.js
+function redirectToProductInfo(productId, catId) {
+    localStorage.setItem('catID', catId);
+    localStorage.setItem('productID', productId);
+    window.location.assign('product-info.html');
+}
 
   //Obtener los productID correspondientes a cada imagen para redirigir a la página del producto
   const images = cartProducts.querySelectorAll('img');
   const productIDs = JSON.parse(localStorage.getItem('cartProducts')) || [];
   images.forEach((image, index)=> {
     image.addEventListener('click', () => {
-      console.log(productIDs[index]);
-      redirectToProductInfo(productIDs[index]);
-    })
-  });
-
+    redirectAndSetCatID(productIDs[index]);
+      });
+    });
 }
 
-//Función reutilizada de products.js para redirigir a products-info.js
-function redirectToProductInfo(productId) {
-    localStorage.setItem('productID', productId);
-    window.location.assign('product-info.html');
-}
 
 //Funcion para remover el producto del carrito en el localStorage
 function removeProductFromCart(productID) {

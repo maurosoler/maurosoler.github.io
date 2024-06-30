@@ -4,10 +4,10 @@ const userCommentSection = document.getElementById("userCommentsSection");
 const productID = localStorage.productID;
 const sortByDateBtn = document.getElementById("sortByDate");
 const sortByStarsBtn = document.getElementById("sortByStars");
-
+const addToCartBtn = document.getElementById('addToCart');
+const alertCart = document.getElementById('alertCart');
+let cartProducts = JSON.parse(localStorage.getItem('cartProducts')) || [];
 //import {userEmail, sidebar} from "helpers.js";
-
-
 
 userEmailFunction();
 themeFunction();
@@ -83,9 +83,7 @@ catch(error) {
 
 fetchDataAndShow()
 
-
 // Star rating based in UserScore
-
 const starRating = (userScore) =>{
   switch (Math.round(userScore)) {
     case 0:
@@ -275,8 +273,6 @@ commentForm.addEventListener('submit', function (e){
     starSelector.selectedIndex = 0;
 });
 
-
-
 document.addEventListener('DOMContentLoaded', function () {
   getAndRenderComments();
   // Agregado al cargar la página que cargue el dato guardado del EMAIL del LocalStorage 
@@ -354,20 +350,26 @@ function renderRelatedProducts() {
 }
 
 //funcionalidad agregar al carrito
-const addToCartBtn = document.getElementById('addToCart');
-
-let cartProducts = JSON.parse(localStorage.getItem('cartProducts')) || [];
-
 addToCartBtn.addEventListener("click", function(e) {
  e.target.closest("#addToCart");
     if (!cartProducts.includes(productID)) {
       cartProducts.push(productID);
 
       localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
-      alert('Agregado al carrito!')
+      const alertProductAdded = `<div class="alert alert-success text-center" role="alert" style="z-index: 1;">
+      Producto agregado al carrito!
+   </div>`;
+   alertCart.innerHTML += alertProductAdded;
     } else {
-      alert('Este item ya esta en su carro de compras!')
+      const alertAddProductFail = `<div class="alert alert-danger text-center" role="alert" style="z-index: 1;">
+      Este item ya esta en su carrito de compras
+   </div>
+      `; 
+      alertCart.innerHTML += alertAddProductFail;
     }
+       setTimeout(() => {
+        alertCart.innerHTML = '';
+    }, 4000);
   }
 );
 

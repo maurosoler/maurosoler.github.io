@@ -40,7 +40,7 @@
             <a class="nav-link inactiveLink" id="dark-theme" href=""></a>
           </li>
         </ul>
-        <div class="form-check form-switch pt-1">
+        <div class="form-check form-switch pt-1" title="Cambiar tema">
           <input class="form-check-input" type="checkbox" role="switch" id="theme-selector">
         </div>
       </div>
@@ -97,7 +97,7 @@
         <h4 class="my-4">Dirección de envío</h4>
         <form class="needs-validation" novalidate>
           <div class="row">
-            <div class="col-5">
+            <div class="col-md-5 col-12">
               <div class="form-floating mb-3">
                 <input type="text" class="form-control" id="streetA" placeholder="Calle" required>
                 <label for="streetA">Calle</label>
@@ -106,7 +106,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-2">
+            <div class="col-md-2 col-12">
               <div class="form-floating">
                 <input type="number" class="form-control" id="numberA" placeholder="Numero" required>
                 <label for="numberA">Número</label>
@@ -115,7 +115,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-5">
+            <div class="col-md-5 col-12">
               <div class="form-floating">
                 <input type="text" class="form-control" id="cornerA" placeholder="Esquina" required>
                 <label for="cornerA">Esquina</label>
@@ -140,15 +140,15 @@
           <div class="container">
             <div class="list-group">
               <div class="list-group-item">
-                <h5>Subtotal: USD<h5 id="subtotalSum"></h5>
+                <h5><strong>Subtotal: USD</strong><h5 id="subtotalSum"></h5>
                 </h5>
               </div>
               <div class="list-group-item Total">
-                <h5>Costo de envio: USD<h5 id="deliveryFee"></h5>
+                <h5><strong>Costo de envio: USD</strong><h5 id="deliveryFee"></h5>
                 </h5>
               </div>
               <div class="list-group-item">
-                <h5>Total: USD<h5 id="totalPrice"></h5>
+                <h5><strong>Total: USD</strong><h5 id="totalPrice"></h5>
                 </h5>
               </div>
             </div>

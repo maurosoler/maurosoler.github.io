@@ -53,7 +53,7 @@
       
       </li>
     </ul>
-    <div class="form-check form-switch pt-1">
+    <div class="form-check form-switch pt-1" title="Cambiar tema">
       <input class="form-check-input" type="checkbox" role="switch" id="theme-selector">
     </div>
 </div>
@@ -88,11 +88,65 @@
   </div>
 </div>
   <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+    <h1>Tus datos:</h1>
+    <div class="row justify-content-center">
+      <img src="img\defaultProfilePicture.jpg" alt="" class="col-md-3" id="displayImage">
+  </div>
+  <div class="row justify-content-center">
+    <input type="file" class="d-block img-Input pt-1" id="imgInput"/>
+    <div class="col-1 text-center pe-5 pt-3" title="Eliminar foto" id="deleteImage"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-x-circle" viewBox="0 0 16 16">
+      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+      <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+    </svg></div></div>
+  
+    <hr>
+    <div class="userInfo container p-5">
+      <form id="dataUserForm">
+        <div class="row mb-3">
+          <div class="col-md-6 form-group">
+            <label for="name">Nombre *</label>
+            <input type="text" class="form-control" id="name"/>
+            <div class="invalid-feedback">
+              <em> (*) Campo obligatorio </em>
+            </div>
       </div>
+      <div class="col-md-6">
+        <label for="second-name">Segundo nombre</label>
+        <input type="text" class="form-control" id="second-name"/>
+      </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-6 form-group">
+          <label for="last-name">Apellido *</label>
+          <input type="text" class="form-control" id="last-name"/>  
+          <div class="invalid-feedback">
+            <em> (*) Campo obligatorio </em>
+          </div>
+        </div>
+        <div class="col-md-6 form-group">
+          <label for="second-last-name">Segundo apellido</label>
+          <input type="text" class="form-control" id="second-last-name"/>  
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-6 form-group">
+          <label for="email">Email *</label>
+          <input type="text" class="form-control" id="email"/>  
+          <div class="invalid-feedback">
+            <em> (*) Campo obligatorio </em>
+          </div>
+        </div>
+        <div class="col-md-6 form-group">
+          <label for="phone-number">Número de contacto</label>
+          <input type="number" class="form-control" id="phone-number"/>  
+        </div>
+      </div>      
     </div>
+    <div class="row justify-content-center">
+    <button type="submit" class="col-md-3 btn" style="width: 200px;" id="btnSaveData">Guardar mis datos</button>
+  </div>
+  </form>
+<div id="alert"></div>
   </main>
   <footer class="text-muted">
     <div class="container">
